@@ -13,11 +13,11 @@ export const App: React.FC = () => {
     };
 
     return (
-        <div className={'container'}>
-            <header>
-                <h1>Date Range Picker</h1>
-            </header>
-            <main>
+        <>
+        <header>
+            <h1>Date Range Picker</h1>
+        </header>
+        <main className={'container'}>
                 <DateRangePicker onChange={handleDateRangeChange}/>
                 <div>
                     {selectedDateRange.length > 0 && (
@@ -33,8 +33,7 @@ export const App: React.FC = () => {
                         </div>
                     )}
                 </div>
-            </main>
-
-        </div>
+        </main>
+        </>
     );
 };
