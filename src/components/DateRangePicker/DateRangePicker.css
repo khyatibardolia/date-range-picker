@@ -1,0 +1,17 @@
+.date-range-picker-section {
+    display: flex;
+}
+
+.date-picker {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-picker:first-child input[type='date'] {
+    margin-right: 12px;
+}
+
+h5 {
+    margin: 0;
+    color: dodgerblue;
+}

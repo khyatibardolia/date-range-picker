@@ -1,0 +1,15 @@
+.container {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.selected-date-range {
+    padding-top: 30px;
+}
+
+.selected-date-range span {
+    color: dimgrey;
+}
