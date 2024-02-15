@@ -1,5 +1,7 @@
 .date-range-picker-section {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .date-picker {
@@ -11,7 +13,7 @@
     margin-right: 12px;
 }
 
-h5 {
+label {
     margin: 0;
     color: dodgerblue;
 }

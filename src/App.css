@@ -10,6 +10,10 @@
     padding-top: 30px;
 }
 
-.selected-date-range span {
+.selected-date-range span, .weekend-dates span {
     color: dimgrey;
+}
+
+.weekend-dates {
+    padding-top: 10px;
 }

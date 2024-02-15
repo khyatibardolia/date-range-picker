@@ -1,27 +1,40 @@
 import React, {useState} from 'react';
 import {DateRangePicker} from "./components/DateRangePicker/DateRangePicker";
 import './App.css';
-import {formattedDate} from "./utils/date";
 
 export const App: React.FC = () => {
-    const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
-    const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
+    const [selectedDateRange, setSelectedDateRange] = useState<string[]>([]);
+    const [weekendDates, setWeekendDates] = useState<string[]>([]);
 
-    const handleDateRangeChange = (startDate: Date, endDate: Date) => {
-        setSelectedStartDate(startDate);
-        setSelectedEndDate(endDate);
+
+    const handleDateRangeChange = (dateRange: string[], weekendDateRange: string[]) => {
+        setSelectedDateRange(dateRange);
+        setWeekendDates(weekendDateRange);
     };
 
     return (
         <div className={'container'}>
-            <h1>Date Range Picker</h1>
-            <DateRangePicker onChange={handleDateRangeChange}/>
-            {selectedStartDate && selectedEndDate && (
-                <div className={'selected-date-range'}>
-                    <span>Selected Date Range: </span>
-                    {`[${formattedDate(selectedStartDate)}, ${formattedDate(selectedEndDate)}]`}
+            <header>
+                <h1>Date Range Picker</h1>
+            </header>
+            <main>
+                <DateRangePicker onChange={handleDateRangeChange}/>
+                <div>
+                    {selectedDateRange.length > 0 && (
+                        <div className={'selected-date-range'}>
+                            <span>Selected date range: </span>
+                            {selectedDateRange.join(', ')}
+                        </div>
+                    )}
+                    {weekendDates.length > 0 && (
+                        <div className={'weekend-dates'}>
+                            <span>Weekend dates: </span>
+                            {weekendDates.join(', ')}
+                        </div>
+                    )}
                 </div>
-            )}
+            </main>
+
         </div>
     );
 };
