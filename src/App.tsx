@@ -19,8 +19,7 @@ export const App: React.FC = () => {
             {selectedStartDate && selectedEndDate && (
                 <div className={'selected-date-range'}>
                     <span>Selected Date Range: </span>
-                    {formattedDate(selectedStartDate)} -
-                    {formattedDate(selectedEndDate)}
+                    {`[${formattedDate(selectedStartDate)}, ${formattedDate(selectedEndDate)}]`}
                 </div>
             )}
         </div>

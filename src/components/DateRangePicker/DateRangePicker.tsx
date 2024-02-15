@@ -1,6 +1,6 @@
 import {ChangeEvent, FC, useState} from 'react';
 import './DateRangePicker.css';
-import {formattedDate} from "../../utils/date";
+import {formattedDate, isWeekend} from "../../utils/date";
 
 interface DateRangePickerProps {
     onChange: (startDate: Date | null, endDate: Date | null) => void;
@@ -16,7 +16,7 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({onChange}) => {
         if (!selectedDate) return;
 
         // check if selected date is a weekend
-        if (selectedDate.getUTCDay() === 0 || selectedDate.getUTCDay() === 6) return;
+        if (isWeekend(selectedDate)) return;
 
         if (isStartDate) {
             setStartDate(selectedDate);
@@ -54,7 +54,6 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({onChange}) => {
                        value={formattedDate(endDate)}
                        onChange={(e: ChangeEvent<HTMLInputElement>) => handleDateChange(e)}/>
             </div>
-
         </div>
     );
 };
