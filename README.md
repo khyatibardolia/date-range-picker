@@ -1,30 +1,59 @@
+# Weekday Date Range Picker Component
+
+![img.png](img.png)
+
+### Overview
+The Weekday Date Range Picker Component is a React component developed using TypeScript and Vite. It allows users to select date ranges while ensuring that only weekdays (Monday through Friday) can be selected, excluding weekends (Saturday and Sunday). This component provides a user-friendly interface for selecting date ranges and includes features such as changing the displayed year and month, predefined date ranges, and returning selected date range and weekend dates.
+
+
+### Features
+- Select a date range defined by a start date and an end date.
+- Highlight only weekdays in the date picker; weekends are not selectable.
+- Change the displayed year and month in the date picker.
+- Return the selected date range and any weekend dates within that range using a change handler function.
+- Input predefined ranges such as the last 7 days or last 30 days.
+
+# Technologies Used
+- ReactJs
+- Typescript
+- Css
+- Vite
+
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Install dependencies
 
-Currently, two official plugins are available:
+`npm install`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Available Scripts
 
-## Expanding the ESLint configuration
+In the project directory, start the development server:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### `npm run dev`
 
-- Configure the top-level `parserOptions` property like this:
+Runs the app in the development mode.\
+Open [http://localhost:5173/](http://localhost:5173/) to view it in the browser.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+### Commit Convention
+- To ensure readability and consistency in `commit messages`, the conventional commit format is used for writing commit messages that are `clear, concise, and informative`.
+- Each commit message should adhere to the following pattern:
+
+```
+<type>(<scope>): <description>
+
+[optional body]
+
+[optional footer]
+
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Where:
+
+- `<type>` specifies the type of the commit (e.g., feat, fix, chore, docs, style).
+- `<scope>` is optional and indicates the scope of the commit (e.g., component name, module).
+- `<description>` is a short, concise description of the change.
+- `[optional body]` provides additional context or details about the change.
+- `[optional footer]` includes any relevant issue or breaking change references.
+
+This convention helps in tracking and understanding the `purpose` of each commit.
+See the section about [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#specification) for more information.
