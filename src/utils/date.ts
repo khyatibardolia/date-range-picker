@@ -1,13 +1,7 @@
-export const isValidDate = (date: Date | null): boolean => {
-    return date instanceof Date && !isNaN(date.getTime());
-};
-
 export const formattedDate = (date: Date | null) => {
-    if (isValidDate(date)) {
-        return date?.toISOString().split('T')[0];
-    }
-    return '';
-};
+    if (!date) return '';
+    return date.toISOString().split('T')[0];
+}
 
 export const isWeekend = (date: Date): boolean => {
     const dayOfWeek = date?.getUTCDay();

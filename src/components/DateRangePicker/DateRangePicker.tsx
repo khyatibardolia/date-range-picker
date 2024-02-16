@@ -1,6 +1,6 @@
 import {ChangeEvent, FC, useState} from 'react';
 import './DateRangePicker.css';
-import {formattedDate, getWeekendDates, isValidDate, isWeekend} from "../../utils/date";
+import {formattedDate, getWeekendDates, isWeekend} from "../../utils/date";
 
 interface PredefinedRanges {
     label: string;
@@ -18,9 +18,13 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({onChange, predefinedR
     const [endDate, setEndDate] = useState<Date | null>(null);
 
     const handleDateChange = (e: ChangeEvent<HTMLInputElement>, isStartDate?: boolean) => {
-        const selectedDate = new Date(e.target.value);
+        const selectedDate: Date | null = e.target.value ? new Date(`${e.target.value}T00:00:00`) : null;
 
-        if (!selectedDate) return;
+        if (!selectedDate) {
+            isStartDate ? setStartDate(null) : setEndDate(null);
+            onChange([], []);
+            return;
+        }
 
         // if selected date is a weekend
         if (isWeekend(selectedDate)) return;
@@ -37,10 +41,10 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({onChange, predefinedR
         }
 
         const selectedDateRange: string[] = [];
-        if (isValidDate(newStartDate)) {
+        if (newStartDate) {
             selectedDateRange.push(formattedDate(newStartDate));
         }
-        if (isValidDate(newEndDate)) {
+        if (newEndDate) {
             selectedDateRange.push(formattedDate(newEndDate));
         }
 
