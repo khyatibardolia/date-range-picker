@@ -30,8 +30,17 @@ label {
 button {
     margin-right: 6px;
     padding: 8px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 button:last-child {
     margin-right: 0;
+}
+
+.selected {
+    background-color: dodgerblue;
+    color: white;
+    font-weight: bold;
 }

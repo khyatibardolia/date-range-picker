@@ -16,6 +16,7 @@ interface DateRangePickerProps {
 export const DateRangePicker: FC<DateRangePickerProps> = ({onChange, predefinedRanges}: DateRangePickerProps) => {
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
+    const [selectedRangeIndex, setSelectedRangeIndex] = useState<number | null>(null);
 
     const handleDateChange = (e: ChangeEvent<HTMLInputElement>, isStartDate?: boolean) => {
         const selectedDate: Date | null = e.target.value ? new Date(`${e.target.value}T00:00:00`) : null;
@@ -23,6 +24,7 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({onChange, predefinedR
         if (!selectedDate) {
             isStartDate ? setStartDate(null) : setEndDate(null);
             onChange([], []);
+            setSelectedRangeIndex(null);
             return;
         }
 
@@ -57,11 +59,12 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({onChange, predefinedR
         isStartDate ? setStartDate(selectedDate) : setEndDate(selectedDate);
     };
 
-    const handlePredefinedRangeClick = (value: [Date, Date]) => {
+    const handlePredefinedRangeClick = (value: [Date, Date], index: number) => {
         const [startDate, endDate] = value;
         setStartDate(startDate);
         setEndDate(endDate);
         onChange([formattedDate(startDate), formattedDate(endDate)], getWeekendDates(startDate, endDate));
+        setSelectedRangeIndex(index);
     };
 
     return (
@@ -88,7 +91,10 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({onChange, predefinedR
             </div>
             <div className="predefined-ranges">
                 {predefinedRanges.map((range: PredefinedRanges, index: number) => (
-                    <button key={index} onClick={() => handlePredefinedRangeClick(range.value)}>
+                    <button key={index}
+                            onClick={() => handlePredefinedRangeClick(range.value, index)}
+                            className={selectedRangeIndex === index ? 'selected' : ''}
+                    >
                         {range.label}
                     </button>
                 ))}
