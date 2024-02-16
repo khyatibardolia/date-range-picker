@@ -25,23 +25,23 @@ export const getWeekendDates = (startDate: Date | null, endDate: Date | null): s
 
 export const today = new Date();
 
-export const subDays = (date, days) => new Date(date.getTime() - days * 24 * 60 * 60 * 1000);
+export const subDays = (date: Date, days: number): Date => new Date(date.getTime() - days * 24 * 60 * 60 * 1000);
 
-export const startOfWeek = date => {
+export const startOfWeek = (date: Date): Date => {
     const sunday = new Date(date);
     sunday.setDate(date.getDate() - date.getDay()); // set to sunday of the current week
     return sunday;
 };
 
-export const endOfWeek = date => {
+export const endOfWeek = (date: Date): Date => {
     const saturday = new Date(date);
     saturday.setDate(date.getDate() + (6 - date.getDay())); // set to saturday of the current week
     return saturday;
 };
 
-export const startOfMonth = date => new Date(date.getFullYear(), date.getMonth(), 1);
+export const startOfMonth = (date: Date): Date => new Date(date.getFullYear(), date.getMonth(), 1);
 
-export const endOfMonth = date => new Date(date.getFullYear(), date.getMonth() + 1, 0);
+export const endOfMonth = (date: Date): Date => new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
 export const predefinedRanges = [
     {

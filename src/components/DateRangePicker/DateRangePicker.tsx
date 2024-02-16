@@ -4,7 +4,7 @@ import {formattedDate, getWeekendDates, isWeekend} from "../../utils/date";
 
 interface PredefinedRanges {
     label: string;
-    value: [Date, Date];
+    value: Date[];
 }
 
 
@@ -59,7 +59,7 @@ export const DateRangePicker: FC<DateRangePickerProps> = ({onChange, predefinedR
         isStartDate ? setStartDate(selectedDate) : setEndDate(selectedDate);
     };
 
-    const handlePredefinedRangeClick = (value: [Date, Date], index: number) => {
+    const handlePredefinedRangeClick = (value: Date[], index: number) => {
         const [startDate, endDate] = value;
         setStartDate(startDate);
         setEndDate(endDate);
