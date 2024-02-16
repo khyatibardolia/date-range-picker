@@ -17,3 +17,21 @@ label {
     margin: 0;
     color: dodgerblue;
 }
+
+.predefined-ranges {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin-right: 6px;
+    padding: 8px;
+}
+
+button:last-child {
+    margin-right: 0;
+}

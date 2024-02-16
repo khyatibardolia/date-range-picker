@@ -3,10 +3,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 0 30px;
 }
 
 .selected-date-range {
-    padding-top: 30px;
+    padding-top: 40px;
 }
 
 .selected-date-range span, .weekend-dates span {
@@ -15,4 +16,12 @@
 
 .weekend-dates {
     padding-top: 10px;
+}
+
+.dates-info-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }

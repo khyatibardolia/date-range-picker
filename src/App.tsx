@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {DateRangePicker} from "./components/DateRangePicker/DateRangePicker";
 import './App.css';
+import {predefinedRanges} from "./utils/date";
 
 export const App: React.FC = () => {
     const [selectedDateRange, setSelectedDateRange] = useState<string[]>([]);
@@ -14,13 +15,13 @@ export const App: React.FC = () => {
 
     return (
         <>
-        <header>
-            <h1>Date Range Picker</h1>
-        </header>
-        <main className={'container'}>
-                <DateRangePicker onChange={handleDateRangeChange}/>
-                <div>
-                    {selectedDateRange.length > 0 && (
+            <header>
+                <h1>Date Range Picker</h1>
+            </header>
+            <main className={'container'}>
+                <DateRangePicker onChange={handleDateRangeChange} predefinedRanges={predefinedRanges}/>
+                <div className={'dates-info-wrapper'}>
+                    {selectedDateRange.length > 1 && (
                         <div className={'selected-date-range'}>
                             <span>Selected date range: </span>
                             {selectedDateRange.join(', ')}
@@ -33,7 +34,7 @@ export const App: React.FC = () => {
                         </div>
                     )}
                 </div>
-        </main>
+            </main>
         </>
     );
 };
