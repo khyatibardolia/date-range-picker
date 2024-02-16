@@ -3,7 +3,7 @@
 ![img.png](img.png)
 
 ### Overview
-The Weekday Date Range Picker Component is a React component developed using TypeScript and Vite. It allows users to select date ranges while ensuring that only weekdays (Monday through Friday) can be selected, excluding weekends (Saturday and Sunday). This component provides a user-friendly interface for selecting date ranges and includes features such as changing the displayed year and month, predefined date ranges, and returning selected date range and weekend dates.
+The Weekday Date Range Picker Component is a React component developed using TypeScript and Vite. It allows users to select date ranges while ensuring that only weekdays (Monday through Friday) can be selected, excluding weekends (Saturday and Sunday). This component provides a user-friendly interface for selecting date ranges and includes features such as changing the displayed year and month, predefined date ranges, and returning selected date range and weekend dates. This component is developed without relying on any third-party React date picker libraries.
 
 
 ### Features
@@ -57,3 +57,8 @@ Where:
 
 This convention helps in tracking and understanding the `purpose` of each commit.
 See the section about [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#specification) for more information.
+
+## Live Demo
+
+The application is deployed on Netlify and can be accessed here:
+https://date-range-picker-component.netlify.app/
